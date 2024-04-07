@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "Andy_codechallenge3"]
+	url = git@github.com:Muny1re1/Andy_Codechallenge3.git
+	fetch = +refs/heads/*:refs/remotes/Andy_codechallenge3/*

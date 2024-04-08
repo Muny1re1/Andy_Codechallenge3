@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     fetchFilms();
-});
+});//adding an event listener that calls the fetchFilms function once DOM content is loaded.
 function fetchFilms() {
-    fetch("http://localhost:3000/films")
+    fetch("http://localhost:3000/films")//using fetch() to send  a GET request to our json server.
         .then(response => response.json())
-        .then(data => {
+        .then(data => {//calling on multiple functions after the dom content loads.
             displayFirstMovieInformation(data);
             menuOnLeft(data);
             updateTicketNumbers(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log(error));//adding a catch error for handling any other errors that might occur
 }
+//Creating a function to display the first movie's information.
 function displayFirstMovieInformation(data) {
     const poster = document.getElementById("poster");
     if (!data) {
@@ -34,7 +35,7 @@ function displayFirstMovieInformation(data) {
     const ticketsRemaining = document.getElementById("ticket-num");
     ticketsRemaining.innerHTML = (data[0].capacity) - (data[0].tickets_sold)
 }
-
+//Creating a functio  to display the movies on the side menu, send a delete request to the server and handle updating of ticketnumbers.
 function menuOnLeft(data) {
     const list = document.getElementsByTagName("ul");
 
@@ -105,7 +106,7 @@ function menuOnLeft(data) {
 }
     
 
-
+//Creating a separate function to update the ticket numbers of the initially displayed movie
 
 function updateTicketNumbers(data) {
     const buyTickets = document.getElementById("buy-ticket");
